@@ -78,7 +78,7 @@ int main(){
     char exp[50];
     printf("Enter experssion(Eg:100 200 + 2 / 5 * 7 +):\n");
     scanf("%[^\n]",exp);
-	printf("Evaluated expression:");
+    printf("Evaluated expression:");
     printf("%d",Postfix(exp));
     return 0;
 }
