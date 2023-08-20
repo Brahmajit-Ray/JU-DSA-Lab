@@ -1,0 +1,129 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_SIZE 100
+
+typedef struct queue{
+	int arr[50];
+	int front,rear;
+}queue;
+
+queue* create(){
+	queue* q=(queue*)malloc(sizeof(queue));
+	q->front=-1;
+	q->rear=-1;
+	
+	return q;
+}
+
+void enqueue(queue* q,int val){
+	if(q->rear==MAX_SIZE-1){
+		printf("Queue Full\n");
+	}else{
+		q->arr[++q->rear]=val;
+		printf("Operation Successful\n");
+	}
+}
+
+void dequeue(queue* q){
+	if(q->rear==q->front){
+		printf("Empty Queue\n");
+	}else{
+		printf("%d",q->arr[q->front+1]);
+		++q->front;
+		printf("Dequeue Successful\n");
+	}
+}
+
+void Printq(queue* q){
+	int i;
+	printf("The queue is:");
+	for(i=q->front+1;i<=q->rear;i++){
+		printf("%d ",q->arr[i]);
+	}
+	printf("\n");
+}
+
+void num(queue* q){
+	printf("Number of elements:%d\n",(q->rear)-(q->front));
+}
+
+void CheckUnderflow(queue* q){
+	if(q->rear==q->front){
+		printf("Underflow\n");
+	}else{
+		printf("Not Underflowing\n");
+	}
+}
+
+void CheckOverflow(queue* q){
+	if(q->rear==MAX_SIZE-1){
+		printf("Overflow\n");
+	}else{
+		printf("Not Overflowing\n");
+	}
+}
+
+int main(){
+	printf("Queue Created\n\n");
+	queue* q=create();
+	printf("Enter 1 for Enqueue\n");
+	printf("Enter 2 for Dequeue\n");
+	printf("Enter 3 for checking number of elements\n");
+	printf("Enter 4 to check Underflow\n");
+	printf("Enter 5 to check Overflow\n");
+	printf("Enter 6 to view queue\n");
+	int val,flag=1,var;
+	
+	while(flag){
+		printf("\nEnter function:");
+		scanf("%d",&var);		
+
+		switch(var){		
+			
+			case 1:
+				printf("Enter value:");
+				scanf("%d",&val);
+				enqueue(q,val);
+				Printq(q);
+				break;
+				
+			case 2:
+				dequeue(q);
+				Printq(q);
+				break;
+				
+			case 3:
+				num(q);
+				break;
+				
+			case 4:
+				CheckUnderflow(q);
+				break;
+				
+			case 5:
+				CheckOverflow(q);
+				break;
+				
+			case 6:
+				Printq(q);
+				break;
+				
+			default:
+				printf("Wrong Command\n");
+				break;
+		
+		}
+		printf("\n");
+		printf("Press 1 to continue,0 to terminate:\n");
+		scanf("%d",&flag);
+		
+	}		
+	return 0;
+}
+	
+	
+	
+	
+	
+	
