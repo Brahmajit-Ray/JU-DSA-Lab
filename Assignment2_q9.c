@@ -25,7 +25,6 @@ void push(stack* s,int val){
 	else{
 		s->top++;
 		s->arr[s->top]=val;
-		printf("Enqueue Successful\n");
 	}
 }
 
@@ -58,10 +57,6 @@ void dequeue(stack* s1,stack* s2){
 	    }
 		printf("%d\n",pop(s2));			
 
-
-		//else{
-		//	printf("%d\n",pop(s2));
-		//}
     }
 }
 
@@ -72,10 +67,10 @@ int count(stack* s1,stack* s2){
 void print_q(stack* s1,stack* s2){
 	int i;
 	if(count(s1,s2)>0){
-		for(i=0;i<=s2->top;i++){
+		for(i=s2->top;i>=0;i--){
 			printf("%d ",s2->arr[i]);
 		}
-		for(i=s1->top;i>=0;i--){
+		for(i=0;i<=s1->top;i++){
 			printf("%d ",s1->arr[i]);
 		}
     }
