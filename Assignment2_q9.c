@@ -124,7 +124,7 @@ int main(){
 			case 1:
 				printf("Enter value:");
 				scanf("%d",&val);
-				enqueue(s2,val);
+				enqueue(s1,val);
 				break;
 				
 			case 2:
