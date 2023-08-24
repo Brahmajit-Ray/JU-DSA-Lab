@@ -45,13 +45,14 @@ void enqueue(stack* s1,int val){
 }
 
 void dequeue(stack* s1,stack* s2){
-	int i;
+	int i,j;
 	if((s1->top==-1) && (s2->top==-1)){
 		printf("Underflow\n");
 	}
 	else{
 		if((s2->top==-1)){
-			for(i=0;i<s1->top+1;i++){
+			j=s1->top;
+			for(i=0;i<=j;i++){
 				push(s2,pop(s1));
 			}
 	    }
@@ -73,6 +74,7 @@ void print_q(stack* s1,stack* s2){
 		for(i=0;i<=s1->top;i++){
 			printf("%d ",s1->arr[i]);
 		}
+		printf("\n");
     }
 	else{
     	printf("Empty Queue\n");
