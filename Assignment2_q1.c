@@ -42,15 +42,22 @@ node* Delete_Node(node* head,int pos){
 	node* dummy=head,*tmp;
 	int count=0;
 	if(pos==0){
+		if(head){
 		head=head->next;
 		return head;
-	}else{
+	}
+	else{
+		printf("Error\n");
+		return;
+	    }
+	}
+	else{
 		while(dummy && count!=pos-1){
 			dummy=dummy->next;
 			count++;
 		}
 		
-		if(dummy->next){
+		if(dummy!=NULL && dummy->next!=NULL){
 			tmp=dummy->next->next;
 			dummy->next=tmp;
 			return head;
